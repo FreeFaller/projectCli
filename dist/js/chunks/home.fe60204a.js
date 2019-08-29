@@ -15,95 +15,7 @@ var render = function() {
     "div",
     { staticClass: "about" },
     [
-      true ? _c("Button", [_vm._v("所有人可见")]) : undefined,
-      _vm._v(" "),
-      _c(
-        "RadioGroup",
-        {
-          directives: [
-            {
-              name: "permission",
-              rawName: "v-permission",
-              value: [_vm.Admin],
-              expression: "[Admin]"
-            }
-          ],
-          attrs: { type: "button" }
-        },
-        [
-          _c(
-            "Radio",
-            {
-              directives: [
-                {
-                  name: "permission",
-                  rawName: "v-permission",
-                  value: [_vm.Admin],
-                  expression: "[Admin]"
-                }
-              ],
-              attrs: { label: "large" }
-            },
-            [_vm._v("仅Admin可见")]
-          ),
-          _vm._v(" "),
-          _c("Radio", { attrs: { label: "default" } }, [_vm._v("Default")]),
-          _vm._v(" "),
-          _c("Radio", { attrs: { label: "small" } }, [_vm._v("small")])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "Button",
-        {
-          directives: [
-            {
-              name: "permission",
-              rawName: "v-permission",
-              value: [_vm.Admin],
-              expression: "[Admin]"
-            }
-          ],
-          attrs: { type: "primary" }
-        },
-        [_vm._v("仅Admin可见")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "permission",
-              rawName: "v-permission",
-              value: [_vm.Admin],
-              expression: "[Admin]"
-            }
-          ],
-          staticStyle: { "background-color": "red" }
-        },
-        [
-          _c("span", [_vm._v("ok")]),
-          _vm._v(" "),
-          _c(
-            "Button",
-            {
-              directives: [
-                {
-                  name: "permission",
-                  rawName: "v-permission",
-                  value: [_vm.Admin],
-                  expression: "[Admin]"
-                }
-              ],
-              attrs: { type: "primary" }
-            },
-            [_vm._v("仅Admin可见")]
-          )
-        ],
-        1
-      ),
+      _c("Button", [_vm._v("所有人可见")]),
       _vm._v(" "),
       _c("h1", { staticStyle: { "margin-bottom": "30px" } }, [
         _vm._v("当前权限：" + _vm._s(_vm.GlobalApp.userInfo.role))
@@ -248,7 +160,7 @@ var request_axios = axios_default.a.create({});
 var request_errorHandler = function errorHandler(res, message) {
   // 抛出错误
   if (message) {
-    vue_runtime_esm["default"].toast.fail("\u8BF7\u6C42\u5931\u8D25\uFF1A" + message);
+    vue_runtime_esm["a" /* default */].toast.fail("\u8BF7\u6C42\u5931\u8D25\uFF1A" + message);
   }
   return Promise.reject(res);
 };
@@ -419,37 +331,11 @@ component.options.__file = "src/views/About.vue"
 
 /***/ }),
 
-/***/ "CgtA":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("I1BE")(false);
-// imports
-
-
-// module
-exports.push([module.i, "h3[data-v-469af010] {\n  margin: 40px 0 0;\n}\nul[data-v-469af010] {\n  list-style-type: none;\n  padding: 0;\n}\nli[data-v-469af010] {\n  display: inline-block;\n  margin: 0 10px;\n}\na[data-v-469af010] {\n  color: #42b983;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "Pq0l":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_node_modules_less_loader_dist_cjs_js_ref_3_3_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("rcBs");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_node_modules_less_loader_dist_cjs_js_ref_3_3_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_node_modules_less_loader_dist_cjs_js_ref_3_3_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_node_modules_less_loader_dist_cjs_js_ref_3_3_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "rcBs":
+/***/ "/Jd4":
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__("CgtA");
+var content = __webpack_require__("gyCT");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -468,6 +354,32 @@ var update = __webpack_require__("aET+")(content, options);
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
+
+/***/ }),
+
+/***/ "Pq0l":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("/Jd4");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HelloWorld_vue_vue_type_style_index_0_id_469af010_scoped_true_lang_less___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "gyCT":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("I1BE")(false);
+// imports
+
+
+// module
+exports.push([module.i, "h3[data-v-469af010] {\n  margin: 40px 0 0;\n}\nul[data-v-469af010] {\n  list-style-type: none;\n  padding: 0;\n}\nli[data-v-469af010] {\n  display: inline-block;\n  margin: 0 10px;\n}\na[data-v-469af010] {\n  color: #42b983;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 

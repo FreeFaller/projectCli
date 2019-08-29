@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/freefaller/.yarn/bin/yarn.js dev
+  /usr/local/bin/node /Users/freefaller/.yarn/bin/yarn.js build
 
 PATH: 
   /Users/freefaller/.yarn/bin:/Users/freefaller/.config/yarn/global/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
@@ -25,10 +25,10 @@ npm manifest:
     "author": "",
     "license": "ISC",
     "dependencies": {
-      "regenerator-runtime": "0.11.1",
-      "spa-history": "0.5.12",
       "axios": "0.18.1",
       "core-js": "^2.6.5",
+      "regenerator-runtime": "0.11.1",
+      "spa-history": "0.5.12",
       "vue": "^2.6.10",
       "vue-router": "^3.0.3"
     },
@@ -6846,7 +6846,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c node webpack/dev.js
+  Arguments: -c node webpack/build.js
   Directory: /Users/freefaller/workspace/advanced
   Output:
   

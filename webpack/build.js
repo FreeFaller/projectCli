@@ -69,9 +69,7 @@ const buildConfig = merge(
     ),
     webpackConfig
 );
-console.log(buildConfig)
 webpack(buildConfig, function (err, stats) {
-    console.log(stats)
     if (err) {
         throw err;
     }

@@ -142,7 +142,9 @@
                         if (item.$options.name === 'Submenu') item.opened = false;
                     });
                 }
-                this.opened = !opened;
+                this.$nextTick(()=>{
+                    this.opened = !opened;
+                })
                 this.menu.updateOpenKeys(this.name);
             }
         },
@@ -152,7 +154,7 @@
                     this.$refs.drop.update();
                 }
             },
-            opened (val) {
+            opened (val,old) {
                 if (this.mode === 'vertical') return;
                 if (val) {
                     // set drop a width to fixed when menu has fixed position
