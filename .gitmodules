@@ -1,0 +1,3 @@
+[submodule "src/components/bview"]
+	path = src/components/bview
+	url = https://github.com/atvue/bview.git

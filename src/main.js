@@ -4,11 +4,14 @@ import router from "./router";
 import "@/permission"; // permission control
 import "@/styles/index.less"; // global css
 
-import iView from "iview";
-import "iview/dist/styles/iview.css";
+import bView from "bview";
+import "@/components/bview/src/style.js" 
+
+import "@/components/business/componentDocker/styles/iview.css";
 
 Vue.config.productionTip = false;
-Vue.use(iView);
+
+Vue.use(bView)
 
 function initVue() {
   new Vue({

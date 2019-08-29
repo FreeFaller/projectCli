@@ -53,12 +53,6 @@ export const baseRoutes = [
     meta: { title: "系统管理" }
   },
   {
-    path: "/system222",
-    name: "system222",
-    component: Layout,
-    meta: { title: "2222222" }
-  },
-  {
     path: "/product",
     component: Layout,
     children: [

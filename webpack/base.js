@@ -1,4 +1,5 @@
 const { resolve } = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -45,13 +46,7 @@ module.exports = function ({mode}) {
                     use: [
                         'style-loader',
                         'css-loader',
-                        'postcss-loader',
-                        {
-                            loader: 'less-loader',
-                            options: {
-                                includePaths: ['src']
-                            }
-                        }
+                        'less-loader',
                     ]
                 },
                 {
@@ -73,6 +68,9 @@ module.exports = function ({mode}) {
                 template: resolveApp('./src/index.html'),
                 filename: 'index.html'
             }),
+            new webpack.DefinePlugin({
+                'process.env.BVIEWPREFIX':"'bview'"  
+            })
         ],
         resolve: {
             // 指定几种默认后缀，即import引入时不需要写后缀
@@ -80,6 +78,8 @@ module.exports = function ({mode}) {
             alias: {
                 vue$: 'vue/dist/vue.runtime.esm.js',
                 '@': resolve(__dirname, '../src'),
+                'bview': resolveApp('./src/components/bview/src/index.js'),
+                'componentDock': resolveApp('./src/components/business/componentDocker/components')
             }
         },
         performance: {

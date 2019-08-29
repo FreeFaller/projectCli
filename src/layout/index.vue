@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
-    <Layout :style="{ height: '100%' }">
+    <myLayout :style="{ height: '100%' }">
       <Header>
-        <Menu mode="horizontal" theme="dark" active-name="1">
+        <myMenu mode="horizontal" theme="dark" active-name="1">
           <div class="layout-logo"></div>
           <div class="layout-nav">
             <MenuItem name="1">
@@ -22,25 +22,32 @@
               Item 4
             </MenuItem>
           </div>
-        </Menu>
+        </myMenu>
       </Header>
-      <Layout :style="{ height: '100%' }">
+      <myLayout :style="{ height: '100%' }">
         <Sider hide-trigger :style="{ overflow: 'auto' }">
           <Sidebar />
         </Sider>
-        <Layout :style="{ padding: '20px', height: '100%' }">
+        <myLayout :style="{ padding: '20px', height: '100%' }">
           <router-view></router-view>
-        </Layout>
-      </Layout>
-    </Layout>
+        </myLayout>
+      </myLayout>
+    </myLayout>
   </div>
 </template>
 <script>
 import Sidebar from "./components/Sidebar";
+import myLayout from "componentDock/layout";
+import myMenu from "componentDock/menu";
 export default {
   name: "mainLayout",
   components: {
-    Sidebar
+    Sidebar,
+    myLayout,
+    Sider:myLayout.Sider,
+    Header:myLayout.Header,
+    myMenu,
+    MenuItem:myMenu.Item,
   }
 };
 </script>

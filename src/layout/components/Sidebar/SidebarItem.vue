@@ -29,10 +29,15 @@ import path from "path";
 import { isExternal } from "@/utils/validate";
 // import Item from './Item'
 import sideLink from "./Link";
+import myMenu from "componentDock/menu";
 
 export default {
   name: "SidebarItem",
-  components: { sideLink },
+  components: { 
+    sideLink ,
+    Submenu:myMenu.Sub,
+    MenuItem:myMenu.Item,
+  },
   props: {
     route: {
       type: Object,
