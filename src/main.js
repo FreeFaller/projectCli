@@ -5,13 +5,14 @@ import "@/permission"; // permission control
 import "@/styles/index.less"; // global css
 
 import bView from "bview";
-import "@/components/bview/src/style.js" 
+import "@/components/bview/src/style.js"
+Vue.use(bView)
 
-import "@/components/business/componentDocker/styles/iview.css";
+import iView from 'iview'
+import 'iview/dist/styles/iview.css';
+Vue.use(iView)
 
 Vue.config.productionTip = false;
-
-Vue.use(bView)
 
 function initVue() {
   new Vue({
@@ -30,4 +31,3 @@ if (module.hot) {
     initVue()
   })
 }
-

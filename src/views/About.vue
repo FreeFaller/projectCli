@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <Button>所有人可见</Button>
-    <!-- <RadioGroup type="button" v-permission="[Admin]">
+    <RadioGroup type="button" v-permission="[Admin]">
       <Radio label="large" v-permission="[Admin]">仅Admin可见</Radio>
       <Radio label="default">Default</Radio>
       <Radio label="small">small</Radio>
@@ -10,7 +10,7 @@
     <div style="background-color:red" v-permission="[Admin]">
       <span>ok</span>
       <Button type="primary" v-permission="[Admin]">仅Admin可见</Button>
-    </div> -->
+    </div>
     <h1 style="margin-bottom:30px">当前权限：{{ GlobalApp.userInfo.role }}</h1>
   </div>
 </template>

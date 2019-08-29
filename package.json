@@ -1,5 +1,5 @@
 {
-  "name": "advanced",
+  "name": "vue-template",
   "version": "1.0.0",
   "description": "a vue template",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "0.18.1",
     "core-js": "^2.6.5",
+    "iview": "^3.5.0-rc.1",
     "regenerator-runtime": "0.11.1",
     "spa-history": "0.5.12",
     "vue": "^2.6.10",

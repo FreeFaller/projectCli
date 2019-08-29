@@ -1,6 +1,6 @@
 <template>
   <Sider hide-trigger :style="{ background: '#fff', overflow: 'auto' }">
-    <myMenu
+    <Menu
       active-name="1-2"
       theme="dark"
       width="auto"
@@ -12,20 +12,16 @@
         :route="route"
         :base-path="route.path"
       />
-    </myMenu>
+    </Menu>
   </Sider>
 </template>
 
 <script>
 import SidebarItem from "./SidebarItem";
-import myLayout from "componentDock/layout";
-import myMenu from "componentDock/menu";
 
 export default {
   components: { 
-    SidebarItem ,
-    Sider:myLayout.Sider,
-    myMenu
+    SidebarItem
   },
   computed: {
     routes() {
