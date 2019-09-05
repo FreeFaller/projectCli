@@ -1,7 +1,7 @@
 <template>
   <div v-if="showItem">
     <template
-      v-if="noShowingChild(route.children, route) || route.upWhenOnlyOneChild"
+      v-if="noShowingChild(route.children, route) || (route.upWhenOnlyOneChild && oneShowingChild)"
     >
       <side-link v-if="displayNode.meta" :to="resolvePath(displayNode.path)">
         <MenuItem :name="resolvePath(displayNode.path)">
@@ -51,7 +51,9 @@ export default {
   inject: ["GlobalApp"],
   data() {
     this.displayNode = null;
-    return {};
+    return {
+      oneShowingChild:false
+    };
   },
   computed: {
     //拼接跳转路由
@@ -97,8 +99,9 @@ export default {
         this.displayNode = { ...parent, path: "" };
         return true;
       }
+      this.oneShowingChild = (showingChildren.length === 1) ? true : false 
       return false;
-    }
+    },
   }
 };
 </script>

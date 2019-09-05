@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const resolveApp = relative => require("path").resolve(process.cwd(), relative)
-module.exports = function ({mode}) {
+module.exports = function ({ mode }) {
     const dev = mode === 'development'
     return {
         mode: dev ? 'development' : 'production',
         devtool: dev ? 'cheap-module-eval-source-map' : 'hidden-source-map',
-    
+
         entry: resolveApp('./src/main.js'),
         optimization: {
             runtimeChunk: true,
@@ -69,7 +69,7 @@ module.exports = function ({mode}) {
                 filename: 'index.html'
             }),
             new webpack.DefinePlugin({
-                'process.env.BVIEWPREFIX':"'bview'"  
+                'process.env.BVIEWPREFIX': "'bview'"
             })
         ],
         resolve: {

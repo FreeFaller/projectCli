@@ -19,38 +19,83 @@ export const baseRoutes = [
   {
     path: "/",
     component: Layout,
-    redirect: "/permision"
+    redirect: "/notice"
+  },
+  {
+    path: "/notice",
+    component: Layout,
+    redirect: "/notice/list",
+    children: [
+      {
+        path: "list",
+        name: "list",
+        component: () =>
+          import(/* webpackChunkName: "notice" */ "@/views/notice/NoticeList.vue"),
+        meta: {
+          title: "公告列表",
+          role: [Admin]
+        },
+        hidden: true
+      }
+    ],
+    meta: { title: "公告列表" }
   },
   {
     path: "/permision",
     component: Layout,
     children: [
       {
-        path: "permision2",
-        name: "permision2",
+        path: "about",
+        name: "about",
         component: () =>
-          import(/* webpackChunkName: "home" */ "@/views/About.vue"),
-        meta: { title: "权限设置" }
-        // hidden: true
+          import(/* webpackChunkName: "home" */ "@/views/permision/About.vue"),
+        meta: { title: "权限设置" },
       }
     ],
-    // upWhenOnlyOneChild: true,
+    upWhenOnlyOneChild: true,
     meta: { title: "权限管理" }
   },
   {
-    path: "/resource",
-    name: "resource",
+    path: "/consumption",
+    name: "consumption",
+    redirect: "/consumption/resource",
     component: Layout,
-    meta: {
-      title: "资源管理",
-      role: [Admin]
-    }
-  },
-  {
-    path: "/system",
-    name: "system",
-    component: Layout,
-    meta: { title: "系统管理" }
+    children: [
+      {
+        path: "resource",
+        name: "resource",
+        redirect: "/consumption/resource/stander",
+        component: () =>
+          import(/* webpackChunkName: "consumption" */ "@/views/consumption/Resource.vue"),
+        children: [
+          {
+            path: "stander",
+            name: "stander",
+            component: () =>
+              import(/* webpackChunkName: "consumption" */ "@/views/consumption/Stander.vue"),
+            hidden: true
+          },
+          {
+            path: "port",
+            name: "port",
+            component: () =>
+              import(/* webpackChunkName: "consumption" */ "@/views/consumption/Port.vue"),
+            hidden: true
+          },
+          {
+            path: "bandwidth",
+            name: "bandwidth",
+            component: () =>
+              import(/* webpackChunkName: "consumption" */ "@/views/consumption/Bandwidth.vue"),
+            hidden: true
+          }
+        ],
+        meta: {
+          title: "资源清单"
+        }
+      }
+    ],
+    meta: { title: "用量明细" }
   },
   {
     path: "/product",
@@ -85,7 +130,6 @@ export const baseRoutes = [
         component: () =>
           import(/* webpackChunkName: "home" */ "@/views/Home.vue"),
         meta: { title: "应用2" },
-        // upWhenOnlyOneChild: true,
         children: [
           {
             path: "cluster3",

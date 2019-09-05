@@ -16,7 +16,7 @@ const TIMEOUT = 10000,
 // 新建axios实例，避免污染全局axios
 const axios = axiosFactory.create({});
 // 错误处理通用方法
-const errorHandler = function(res, message) {
+const errorHandler = function (res, message) {
   // 抛出错误
   if (message) {
     Vue.toast.fail(`请求失败：${message}`);
@@ -54,7 +54,7 @@ axios.interceptors.response.use(
     let { message } = data;
 
     if (data.code == "200" || data.code == "10200") {
-      return Promise.resolve(data.result);
+      return Promise.resolve(data.data);
     } else {
       return errorHandler(res, message);
     }
@@ -87,7 +87,7 @@ methods.forEach(m => {
    * 其他所有参数改成解构，需要其他参数自行添加
    * =>timeout  number  超时时间  默认10s
    */
-  ajax[m] = function(url, data = {}, { timeout = 10000 } = {}) {
+  ajax[m] = function (url, data = {}, { timeout = 10000 } = {}) {
     let config = {
       timeout
     };

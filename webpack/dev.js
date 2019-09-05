@@ -12,10 +12,6 @@ let webpackConfig = {
         chunkFilename: 'js/[name].[hash].js',
         publicPath: '/'
     },
-    devServer: {
-        contentBase: './dist',
-        hot: true
-    },
     mode,
     watch: true,
     plugins: [new webpack.HotModuleReplacementPlugin()]
@@ -25,16 +21,27 @@ const mergedConfig = merge(baseConfig, webpackConfig);
 const options = {
     open: true,
     hot: true,
-    // host: 'localhost',
     stats: {
         colors: true,
     },
+    proxy: {
+        '/api/*': {
+            target: 'http://localhost:8002',
+            changeOrigin: true,
+            filter: function (pathname, req) {
+                var reg = /^\/api\//;
+                var sufixReg = /\.(js)|(css)|(html)$/;
+                var isProxy = reg.test(pathname) && !sufixReg.test(pathname);
+                return isProxy;
+            }
+        }
+    }
 }
 WebpackDevServer.addDevServerEntrypoints(mergedConfig, options);
 
 const compiler = webpack(mergedConfig);
 const server = new WebpackDevServer(compiler, options);
 
-server.listen(8080, '127.0.0.1', () => {
+server.listen(8082, '127.0.0.1', () => {
     console.log('Starting server on http://localhost:8080');
 });

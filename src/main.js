@@ -4,10 +4,6 @@ import router from "./router";
 import "@/permission"; // permission control
 import "@/styles/index.less"; // global css
 
-import bView from "bview";
-import "@/components/bview/src/style.js"
-Vue.use(bView)
-
 import iView from 'iview'
 import 'iview/dist/styles/iview.css';
 Vue.use(iView)
