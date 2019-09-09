@@ -48,7 +48,7 @@ export const baseRoutes = [
         path: "about",
         name: "about",
         component: () =>
-          import(/* webpackChunkName: "home" */ "@/views/permision/About.vue"),
+          import(/* webpackChunkName: "permision" */ "@/views/permision/About.vue"),
         meta: { title: "权限设置" },
       }
     ],

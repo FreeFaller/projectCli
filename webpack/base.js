@@ -2,10 +2,14 @@ const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const resolveApp = relative => require("path").resolve(process.cwd(), relative)
 module.exports = function ({ mode }) {
     const dev = mode === 'development'
+    const cssFilename = dev
+        ? 'css/[name].css'
+        : 'css/[name].[contenthash:8].css';
     return {
         mode: dev ? 'development' : 'production',
         devtool: dev ? 'cheap-module-eval-source-map' : 'hidden-source-map',
@@ -34,28 +38,41 @@ module.exports = function ({ mode }) {
                     options: {}
                 },
                 {
-                    test: /\.css$/,
-                    use: [
-                        'style-loader',
-                        'css-loader',
-                        'postcss-loader'
-                    ]
-                },
-                {
                     test: /\.less$/,
                     use: [
-                        'style-loader',
+                        dev ? 'style-loader' : MiniCssExtractPlugin.loader,
                         'css-loader',
                         'less-loader',
                     ]
                 },
                 {
-                    test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+                    test: /\.css$/,
+                    use: [
+                        dev ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'postcss-loader'
+                    ]
+                },
+                {
+                    test: /\.(png|jpg|jpeg|gif)(\?.+)?$/,
                     use: [
                         {
                             loader: 'url-loader',
                             options: {
-                                limit: 10000
+                                limit: 10000,
+                                name: 'images/[name]-[hash:8].[ext]'
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+                    use: [
+                        {
+                            loader: 'url-loader',
+                            options: {
+                                limit: 10000,
+                                name: 'font/[name]-[hash:8].[ext]'
                             }
                         }
                     ]
@@ -70,6 +87,9 @@ module.exports = function ({ mode }) {
             }),
             new webpack.DefinePlugin({
                 'process.env.BVIEWPREFIX': "'bview'"
+            }),
+            new MiniCssExtractPlugin({
+                filename: cssFilename
             })
         ],
         resolve: {

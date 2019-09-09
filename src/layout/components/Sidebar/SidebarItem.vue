@@ -94,12 +94,12 @@ export default {
         !item.hidden && (this.displayNode = item);
         return !item.hidden;
       });
+      this.oneShowingChild = (showingChildren.length === 1) ? true : false 
       // 没有子节点显示时显示父节点可选中
       if (showingChildren.length === 0) {
         this.displayNode = { ...parent, path: "" };
         return true;
       }
-      this.oneShowingChild = (showingChildren.length === 1) ? true : false 
       return false;
     },
   }
