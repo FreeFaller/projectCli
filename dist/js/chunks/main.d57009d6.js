@@ -670,27 +670,35 @@ function findComponentDownward(context, componentName) {
     var children = null;
 
     if (childrens.length) {
-        for (var _iterator = childrens, _isArray = Array.isArray(_iterator), _i2 = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-            var _ref;
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
 
-            if (_isArray) {
-                if (_i2 >= _iterator.length) break;
-                _ref = _iterator[_i2++];
-            } else {
-                _i2 = _iterator.next();
-                if (_i2.done) break;
-                _ref = _i2.value;
+        try {
+            for (var _iterator = childrens[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var child = _step.value;
+
+                var name = child.$options.name;
+                if (name === componentName) {
+                    children = child;
+                    break;
+                } else {
+                    children = findComponentDownward(child, componentName);
+                    if (children) break;
+                }
             }
-
-            var child = _ref;
-
-            var name = child.$options.name;
-            if (name === componentName) {
-                children = child;
-                break;
-            } else {
-                children = findComponentDownward(child, componentName);
-                if (children) break;
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
             }
         }
     }
@@ -854,6 +862,10 @@ function _broadcast(componentName, eventName, params) {
     }
 });
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/business/componentDocker/components/menu/menu.vue?vue&type=script&lang=js&
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -908,12 +920,10 @@ var prefixCls = 'ivu-menu';
 
     computed: {
         classes: function classes() {
-            var _ref;
-
             var theme = this.theme;
             if (this.mode === 'vertical' && this.theme === 'primary') theme = 'light';
 
-            return ['' + prefixCls, prefixCls + '-' + theme, (_ref = {}, _ref[prefixCls + '-' + this.mode] = this.mode, _ref)];
+            return ['' + prefixCls, prefixCls + '-' + theme, _defineProperty({}, prefixCls + '-' + this.mode, this.mode)];
         },
         styles: function styles() {
             var style = {};
@@ -932,7 +942,7 @@ var prefixCls = 'ivu-menu';
             this.broadcast('MenuItem', 'on-update-active-name', this.currentActiveName);
         },
         updateOpenKeys: function updateOpenKeys(name) {
-            var names = [].concat(this.openedNames);
+            var names = [].concat(_toConsumableArray(this.openedNames));
             var index = names.indexOf(name);
             if (this.accordion) findComponentsDownward(this, 'Submenu').forEach(function (item) {
                 item.opened = false;
@@ -974,7 +984,7 @@ var prefixCls = 'ivu-menu';
             }).map(function (item) {
                 return item.name;
             });
-            this.openedNames = [].concat(openedNames);
+            this.openedNames = [].concat(_toConsumableArray(openedNames));
             this.$emit('on-open-change', openedNames);
         },
         updateOpened: function updateOpened() {
@@ -995,7 +1005,7 @@ var prefixCls = 'ivu-menu';
     mounted: function mounted() {
         var _this2 = this;
 
-        this.openedNames = [].concat(this.openNames);
+        this.openedNames = [].concat(_toConsumableArray(this.openNames));
         this.updateOpened();
         this.$nextTick(function () {
             return _this2.updateActiveName();
@@ -1293,6 +1303,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 });
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/business/componentDocker/components/menu/menu-item.vue?vue&type=script&lang=js&
+function menu_itemvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1336,7 +1348,7 @@ var menu_itemvue_type_script_lang_js_prefixCls = 'ivu-menu';
         classes: function classes() {
             var _ref;
 
-            return [menu_itemvue_type_script_lang_js_prefixCls + '-item', (_ref = {}, _ref[menu_itemvue_type_script_lang_js_prefixCls + '-item-active'] = this.active, _ref[menu_itemvue_type_script_lang_js_prefixCls + '-item-selected'] = this.active, _ref[menu_itemvue_type_script_lang_js_prefixCls + '-item-disabled'] = this.disabled, _ref)];
+            return [menu_itemvue_type_script_lang_js_prefixCls + '-item', (_ref = {}, menu_itemvue_type_script_lang_js_defineProperty(_ref, menu_itemvue_type_script_lang_js_prefixCls + '-item-active', this.active), menu_itemvue_type_script_lang_js_defineProperty(_ref, menu_itemvue_type_script_lang_js_prefixCls + '-item-selected', this.active), menu_itemvue_type_script_lang_js_defineProperty(_ref, menu_itemvue_type_script_lang_js_prefixCls + '-item-disabled', this.disabled), _ref)];
         },
         itemStyle: function itemStyle() {
             return this.hasParentSubmenu && this.mode !== 'horizontal' ? {
@@ -1702,6 +1714,8 @@ iconvue_type_template_id_83789912_render._withStripped = true
 // CONCATENATED MODULE: ./src/components/business/componentDocker/components/icon/icon.vue?vue&type=template&id=83789912&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/business/componentDocker/components/icon/icon.vue?vue&type=script&lang=js&
+function iconvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1726,7 +1740,7 @@ var iconvue_type_script_lang_js_prefixCls = 'ivu-icon';
         classes: function classes() {
             var _ref;
 
-            return ['' + iconvue_type_script_lang_js_prefixCls, (_ref = {}, _ref[iconvue_type_script_lang_js_prefixCls + '-' + this.type] = this.type !== '', _ref['' + this.custom] = this.custom !== '', _ref)];
+            return ['' + iconvue_type_script_lang_js_prefixCls, (_ref = {}, iconvue_type_script_lang_js_defineProperty(_ref, iconvue_type_script_lang_js_prefixCls + '-' + this.type, this.type !== ''), iconvue_type_script_lang_js_defineProperty(_ref, '' + this.custom, this.custom !== ''), _ref)];
         },
         styles: function styles() {
             var style = {};
@@ -1856,6 +1870,8 @@ var Transition = {
     }
 });
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/business/componentDocker/components/menu/submenu.vue?vue&type=script&lang=js&
+function submenuvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1912,7 +1928,7 @@ var submenuvue_type_script_lang_js_prefixCls = 'ivu-menu';
         classes: function classes() {
             var _ref;
 
-            return [submenuvue_type_script_lang_js_prefixCls + '-submenu', (_ref = {}, _ref[submenuvue_type_script_lang_js_prefixCls + '-item-active'] = this.active && !this.hasParentSubmenu, _ref[submenuvue_type_script_lang_js_prefixCls + '-opened'] = this.opened, _ref[submenuvue_type_script_lang_js_prefixCls + '-submenu-disabled'] = this.disabled, _ref[submenuvue_type_script_lang_js_prefixCls + '-submenu-has-parent-submenu'] = this.hasParentSubmenu, _ref[submenuvue_type_script_lang_js_prefixCls + '-child-item-active'] = this.active, _ref)];
+            return [submenuvue_type_script_lang_js_prefixCls + '-submenu', (_ref = {}, submenuvue_type_script_lang_js_defineProperty(_ref, submenuvue_type_script_lang_js_prefixCls + '-item-active', this.active && !this.hasParentSubmenu), submenuvue_type_script_lang_js_defineProperty(_ref, submenuvue_type_script_lang_js_prefixCls + '-opened', this.opened), submenuvue_type_script_lang_js_defineProperty(_ref, submenuvue_type_script_lang_js_prefixCls + '-submenu-disabled', this.disabled), submenuvue_type_script_lang_js_defineProperty(_ref, submenuvue_type_script_lang_js_prefixCls + '-submenu-has-parent-submenu', this.hasParentSubmenu), submenuvue_type_script_lang_js_defineProperty(_ref, submenuvue_type_script_lang_js_prefixCls + '-child-item-active', this.active), _ref)];
         },
         accordion: function accordion() {
             return this.menu.accordion;

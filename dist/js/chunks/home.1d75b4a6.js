@@ -60,13 +60,20 @@ var HelloWorldvue_type_template_id_469af010_scoped_true_render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "hello" }, [
-    _c("h1", [_vm._v(_vm._s(_vm.msg))]),
-    _vm._v(" "),
-    _c("h3", [_vm._v("Ecosystem")]),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+  return _c(
+    "div",
+    { staticClass: "hello" },
+    [
+      _c("h1", [_vm._v(_vm._s(_vm.msg))]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Ecosystem")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("Table", { attrs: { columns: _vm.columns1, data: _vm.data1 } })
+    ],
+    1
+  )
 }
 var HelloWorldvue_type_template_id_469af010_scoped_true_staticRenderFns = [
   function() {
@@ -191,11 +198,58 @@ HelloWorldvue_type_template_id_469af010_scoped_true_render._withStripped = true
 //
 //
 //
+//
 
 /* harmony default export */ var HelloWorldvue_type_script_lang_js_ = ({
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data: function data() {
+    var h = this.$createElement;
+
+    return {
+      columns1: [{
+        title: 'Name',
+        key: 'name',
+        render: function render(h, params) {
+          return h(
+            'a',
+            {
+              attrs: { href: 'javascript:;', onclick: 'alert(666)' }
+            },
+            ['ddd']
+          );
+        }
+      }, {
+        title: 'Age',
+        key: 'age'
+      }, {
+        title: 'Address',
+        key: 'address'
+      }],
+      data1: [{
+        name: 'John Brown',
+        age: 18,
+        address: 'New York No. 1 Lake Park',
+        date: '2016-10-03'
+      }, {
+        name: 'Jim Green',
+        age: 24,
+        address: 'London No. 1 Lake Park',
+        date: '2016-10-01'
+      }, {
+        name: 'Joe Black',
+        age: 30,
+        address: 'Sydney No. 1 Lake Park',
+        date: '2016-10-02'
+      }, {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        date: '2016-10-04'
+      }]
+    };
   }
 });
 // CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=script&lang=js&
