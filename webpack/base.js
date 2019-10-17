@@ -1,11 +1,20 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-17 10:21:00
+ * @LastEditTime: 2019-10-17 14:27:59
+ * @LastEditors: Please set LastEditors
+ */
 const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const getClientEnvironment = require('./env');
 
 const resolveApp = relative => require("path").resolve(process.cwd(), relative)
 module.exports = function ({ mode }) {
+  const env = getClientEnvironment(mode);
     const dev = mode === 'development'
     const cssFilename = dev
         ? 'css/[name].css'
@@ -42,7 +51,12 @@ module.exports = function ({ mode }) {
                     use: [
                         dev ? 'style-loader' : MiniCssExtractPlugin.loader,
                         'css-loader',
-                        'less-loader',
+                        {
+                          loader: "less-loader",
+                          options: {
+                            javascriptEnabled: true
+                          }
+                        }
                     ]
                 },
                 {

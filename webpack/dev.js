@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-17 10:21:00
+ * @LastEditTime: 2019-10-17 14:25:20
+ * @LastEditors: Please set LastEditors
+ */
 const mode = 'development';
 const webpack = require('webpack')
 const merge = require('webpack-merge');
@@ -33,7 +40,13 @@ const options = {
                 var sufixReg = /\.(js)|(css)|(html)$/;
                 var isProxy = reg.test(pathname) && !sufixReg.test(pathname);
                 return isProxy;
-            }
+            },
+            onProxyReq: function (proxyReq, req, res) {
+              let { proxyCookie } = process.env;
+              if (proxyCookie) {
+                  proxyReq.setHeader('Cookie', proxyCookie);
+              }
+          }
         }
     }
 }
@@ -43,5 +56,5 @@ const compiler = webpack(mergedConfig);
 const server = new WebpackDevServer(compiler, options);
 
 server.listen(8082, '127.0.0.1', () => {
-    console.log('Starting server on http://localhost:8080');
+    console.log('Starting server on http://localhost:8082');
 });
