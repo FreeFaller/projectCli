@@ -717,7 +717,6 @@ babel-helper-replace-supers@^6.24.1:
 babel-helper-vue-jsx-merge-props@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-2.0.3.tgz#22aebd3b33902328e513293a8e4992b384f9f1b6"
-  integrity sha512-gsLiKK7Qrb7zYJNgiXKpXblxbV5ffSwR0f5whkPAaBAR4fhi6bwRZxX9wBlIc5M/v8CCkXUbXZL4N/nSE97cqg==
 
 babel-helpers@^6.24.1:
   version "6.24.1"
@@ -2251,12 +2250,10 @@ domutils@^1.5.1:
 dotenv-expand@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-4.2.0.tgz#def1f1ca5d6059d24a766e587942c21106ce1275"
-  integrity sha1-3vHxyl1gWdJKdm5YeULCEQbOEnU=
 
 dotenv@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
-  integrity sha512-4As8uPrjfwb7VXC+WnLCbXK7y+Ueb2B3zgNCePYfhxS1PYeaO1YTeplffTEcbfLhvFNGLAz90VvJs9yomG7bow==
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
@@ -4004,7 +4001,6 @@ mimic-fn@^2.0.0:
 mini-css-extract-plugin@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-0.8.0.tgz#81d41ec4fe58c713a96ad7c723cdb2d0bd4d70e1"
-  integrity sha512-MNpRGbNA52q6U92i0qbVpQNsgk7LExy41MdAlG84FeytfDOtRIf/mCHdEgG8rpTKOaNKiqUnZdlptF469hxqOw==
   dependencies:
     loader-utils "^1.1.0"
     normalize-url "1.9.1"
@@ -6225,10 +6221,9 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-view-design@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/view-design/-/view-design-4.0.1.tgz#a1254675fc3abf378bf48c0ccbd35fac75e3e987"
-  integrity sha512-OaLj/8YSZp0IsJoHlWvvAf/Egg2KDqQ/OCQdqLgTMPKAr5psCk4nmt9JTnvRHMShL1pk0JDjU50CS89x4DYi4g==
+view-design@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/view-design/-/view-design-4.0.2.tgz#983450fb4fd0a56642dc13ebc7e585c0aae64fc8"
   dependencies:
     async-validator "^1.10.0"
     deepmerge "^2.2.1"
