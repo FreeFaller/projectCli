@@ -25,7 +25,7 @@
         </Menu>
       </Header>
       <Layout :style="{ height: '100%' }">
-        <Sider hide-trigger :style="{ overflow: 'auto' }">
+        <Sider hide-trigger class="sider-style">
           <Sidebar />
         </Sider>
         <Layout :style="{ padding: '20px', height: '100%' }">
@@ -60,6 +60,10 @@ export default {
   position: relative;
   top: 15px;
   left: 20px;
+}
+.sider-style {
+  overflow: auto;
+  background: #2a313c;
 }
 .layout-nav {
   width: 420px;

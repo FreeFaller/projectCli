@@ -4,13 +4,13 @@
       v-if="noShowingChild(route.children, route) || (route.upWhenOnlyOneChild && oneShowingChild)"
     >
       <side-link v-if="displayNode.meta" :to="resolvePath(displayNode.path)">
-        <MenuItem :name="resolvePath(displayNode.path)">
+        <MenuItem :name="nameOfRoute(displayNode.meta.title)">
           <Icon type="ios-stats" />{{ displayNode.meta.title }}
         </MenuItem>
       </side-link>
     </template>
 
-    <Submenu v-else ref="subMenu" :name="resolvePath(route.path)">
+    <Submenu v-else ref="subMenu" :name="nameOfSubRoute(displayNode.meta.title)">
       <template slot="title">
         <Icon type="ios-stats" />{{ route.meta.title }}
       </template>
@@ -27,7 +27,6 @@
 <script>
 import path from "path";
 import { isExternal } from "@/utils/validate";
-// import Item from './Item'
 import sideLink from "./Link";
 import myMenu from "componentDock/menu";
 
@@ -80,12 +79,23 @@ export default {
           //无权限校验模块直接显示
           return true;
         } else {
+          // 下一行注释代码用于v-permission，当前逻辑用于v-role
+          // return role.indexOf(meta.role) > -1
           return role.some(item => {
             return meta.role.includes(item);
           });
         }
       }
       return false;
+    },
+    // 取路由中的名字（name）作为menuItem的名字
+    nameOfRoute: function(routeName) {
+      return routeName=>{
+        return routeName
+      }
+    },
+    nameOfSubRoute(routeName) {
+      return ()=>{ return this.route.meta.title}
     }
   },
   methods: {
@@ -105,9 +115,16 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="less" scoped>
 .ivu-menu-item-selected {
   color: #fff !important;
   background: #2d8cf0 !important;
+}
+.sider-style {
+  .ivu-menu-vertical .ivu-menu-submenu-title-icon{right:10px}
+  .router-link-active li{
+    color: #fff !important;
+    background: #4886FF !important;
+  }
 }
 </style>
