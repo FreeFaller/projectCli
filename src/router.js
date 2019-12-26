@@ -73,7 +73,7 @@ export const baseRoutes = [
             name: "stander",
             component: () =>
               import(/* webpackChunkName: "consumption" */ "@/views/consumption/Stander.vue"),
-            hidden: true
+            hidden: true,
           },
           {
             path: "port",

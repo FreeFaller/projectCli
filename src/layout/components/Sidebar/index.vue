@@ -1,9 +1,9 @@
 <template>
-  <Sider hide-trigger :style="{ background: '#fff', overflow: 'auto' }">
+  <Sider hide-trigger width = 180 :style="{ background: '#fff', overflow: 'auto' }">
     <Menu
       :key="findAllOpenNames().join()"
       theme="dark"
-      width="auto"
+      width=180
       :active-name="menuActiveName"
       :open-names="findAllOpenNames()"
     >
@@ -12,6 +12,7 @@
         :key="route.path"
         :route="route"
         :base-path="route.path"
+        :style="{background:'#2A313C'}"
       />
     </Menu>
   </Sider>
@@ -29,7 +30,21 @@ export default {
       return this.$router.options.routes;
     },
     menuActiveName(){// 当前菜单选中的name
-      return this.$route.meta.title // 当前路由
+      if (this.$route.meta.title) {
+        return this.$route.meta.title // 当前路由
+      }else{
+        //沿父路由上上查询
+        let matched = this.$route.matched
+        if (matched.length > 0) {
+          for (let i = matched.length - 1; i >= 0; i--) {
+            if (matched[i].meta.title) {
+              return matched[i].meta.title
+            }else{
+              continue
+            }
+          }
+        }
+      }
     },
   },
   methods:{

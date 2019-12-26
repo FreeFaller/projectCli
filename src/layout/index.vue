@@ -25,7 +25,7 @@
         </Menu>
       </Header>
       <Layout :style="{ height: '100%' }">
-        <Sider hide-trigger class="sider-style">
+        <Sider hide-trigger width="180" class="sider-style">
           <Sidebar />
         </Sider>
         <Layout :style="{ padding: '20px', height: '100%' }">
