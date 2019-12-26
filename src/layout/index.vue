@@ -3,7 +3,7 @@
     <Layout :style="{ height: '100%' }">
       <Header>
         <div class="layout-logo">
-          <img src="./logo2@2x.png" class="logo" />
+          <img src="@/assets/img/logo2@2x.png" class="logo" />
         </div>
       </Header>
       <Layout :style="{ height: '100%' }">
